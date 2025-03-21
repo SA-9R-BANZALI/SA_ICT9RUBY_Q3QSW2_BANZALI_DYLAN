@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0A1D56;
+            color: #E0E7FF;
+            text-align: center;
+        }
+        #container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .btn-custom {
+            width: 100%;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        input {
+            background: #132F7E;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h2>Are you SIGMA or SKIBIDI at math?</h2>
+        <p>Enter values for <strong>a</strong> and <strong>b</strong>:</p>
+        <input type="number" id="numA" class="form-control mb-3" placeholder="Enter value for a">
+        <input type="number" id="numB" class="form-control mb-4" placeholder="Enter value for b">
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <button onclick="calculate('product')" class="btn btn-success btn-custom">Product</button>
+            </div>
+            <div class="col-md-6 mb-2">
+                <button onclick="calculate('power')" class="btn btn-warning btn-custom">Exponentiation</button>
+            </div>
+            <div class="col-md-6 mb-2">
+                <button onclick="calculate('remainder')" class="btn btn-danger btn-custom">Remainder</button>
+            </div>
+            <div class="col-md-6 mb-2">
+                <button onclick="calculate('compare')" class="btn btn-info btn-custom">Equality Check</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            let a = Number(document.getElementById("numA").value);
+            let b = Number(document.getElementById("numB").value);
+            let result;
+            
+            switch (operation) {
+                case 'product': result = `Product: ${a * b}`; break;
+                case 'power': result = `${a} raised to ${b} is ${a ** b}`; break;
+                case 'remainder': result = `Remainder: ${a % b}`; break;
+                case 'compare': result = a === b ? "a and b are equal" : "a and b are not equal"; break;
+            }
+            alert(result);
+        }
+    </script>
+</body>
+</html>
